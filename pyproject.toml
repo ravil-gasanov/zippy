@@ -1,0 +1,15 @@
+[project]
+name = "zippy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "logger>=1.4",
+    "loguru>=0.7.3",
+    "pytest>=8.4.1",
+    "typer>=0.17.3",
+]
+
+[project.scripts]
+zippy = "zippy.cli:main"
