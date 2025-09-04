@@ -1,24 +1,21 @@
 from loguru import logger
 
 
-def read_file(path):
+def read_file(path, mode="r"):
+    encoding = "utf-8" if mode == "r" else None
     try:
-        with open(path, "r", encoding="utf-8") as file:
+        with open(path, mode, encoding=encoding) as file:
             return file.read()
     except FileNotFoundError as e:
         logger.error(f"File not found: {path}")
         raise e
 
 
-def write_header(path, header):
-    with open(path, "w") as file:
-        file.write(header)
-
-
-def append_text(path, text):
+def write_file(path, content, mode="w"):
+    encoding = "utf-8" if mode == "w" else None
     try:
-        with open(path, "ab") as file:
-            file.write(text)
+        with open(path, mode, encoding=encoding) as file:
+            file.write(content)
     except FileNotFoundError as e:
         logger.error(f"File not found: {path}")
         raise e
